@@ -6,13 +6,16 @@ import { getFirestore,  } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAtk_PO-mC9xEZsN8aatyEHdLFkZvt_hTo",
-  authDomain: "next-auth-username-passwords.firebaseapp.com",
-  projectId: "next-auth-username-passwords",
-  storageBucket: "next-auth-username-passwords.appspot.com",
-  messagingSenderId: "78794701925",
-  appId: "1:78794701925:web:d1baa091db025a1da61a8c"
+  apiKey: "AIzaSyAB2_Ku26XY6Z0G4expsGdyCodsBq3esMQ",
+  authDomain: "auth-email-d99f3.firebaseapp.com",
+  projectId: "auth-email-d99f3",
+  storageBucket: "auth-email-d99f3.appspot.com",
+  messagingSenderId: "341485430822",
+  appId: "1:341485430822:web:2aad5cc8200bc80baa5ee7"
 };
+
+
+
 
 // Initialize Firebase
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
