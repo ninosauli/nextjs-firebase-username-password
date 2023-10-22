@@ -11,12 +11,12 @@ export default function Signin() {
   const router = useRouter();
   return (
     <div className='w-full flex flex-col md:flex-row'>
-   <div className='w-1/2'>
+   <div className='w-full md:w-1/2 order-2 md:order-1'>
     <Image src="/images/img.png" alt='image' width={1000} height={1000} className='w-full '></Image>
-    <div className='text-white flex justify-center p-28' style={{backgroundColor:"#1f2228"}}>
+    <div className='text-white flex justify-center p-0 md:p-44' style={{backgroundColor:"#1f2228"}}>
      </div>
     </div> 
-    <div className="flex flex-col px-6 py-12 lg:px-8 w-1/2">
+    <div className="flex flex-col px-6 py-12 lg:px-8 w-full md:w-1/2 order-1 md:order-2">
     
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
