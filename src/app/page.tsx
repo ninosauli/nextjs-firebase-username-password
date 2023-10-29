@@ -2,10 +2,14 @@
 import { signOut, useSession } from 'next-auth/react';
 
 import { redirect } from 'next/navigation';
-import { use, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-
-
+interface Anime {
+  anime: string;
+  character: string;
+  quote: string;
+}
 export default function Home() {
 
   const session = useSession({
@@ -61,14 +65,34 @@ export default function Home() {
     }
   };
 
+
+const [data, setData] = useState<Anime[]>([])
+useEffect(() => {
+  const fetchData = async () => {
+    try{
+        const response =await axios.get('https://animechan.xyz/api/random')
+        setData(response.data)
+        console.log('response', response)
+    }catch(error){
+        console.error('Error fetching data:', error)
+    }
+  };
+fetchData()
+},[])
+
   return (
     <div className="p-8 w-full">
      <div className='w-full flex pb-4 px-4 justify-between'>
      <div id='#navbar' className=' text-white'>Hi {session?.data?.user?.email && findNameByEmail(session?.data?.user?.email)}</div>
       <button className='text-white' onClick={() => signOut()}>Logout</button>
+      
       </div>
-
-
+      <div className='mt-10 w-8/12 text-2xl text-stone-100 flex flex-col'>
+<div>Data coming from APIs using axios, they change everytime you refresh</div>
+<div className='mt-6 text-xl'><p>Anime Title : {data.anime}</p>
+<p>Character name: {data.character}</p>
+<p> Character quote: {data.quote}</p></div>
+</div>
   
     </div>
   )
