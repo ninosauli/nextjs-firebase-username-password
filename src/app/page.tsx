@@ -5,11 +5,6 @@ import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-interface Anime {
-  anime: string;
-  character: string;
-  quote: string;
-}
 export default function Home() {
   const session = useSession({
     required: true,
@@ -63,7 +58,7 @@ export default function Home() {
     }
   };
 
-  const [data, setData] = useState<Anime[]>([]);
+  const [data, setData] = useState<any>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
